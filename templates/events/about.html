@@ -1,0 +1,252 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Team | TEDxMPS Youth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;500;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--red:#eb0028;--red2:#ff3355;--bg:#050506;--card:#0d0d10;--line:rgba(255,255,255,.08);--txt:#f4f4f6;--mut:#8b8b96}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;overflow-x:hidden;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;z-index:-2;
+background:radial-gradient(900px 500px at 15% -5%,rgba(235,0,40,.22),transparent 60%),radial-gradient(700px 500px at 100% 40%,rgba(235,0,40,.12),transparent 60%),var(--bg)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+background-size:60px 60px;mask-image:radial-gradient(ellipse at center,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000 20%,transparent 75%)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* hero */
+.hero{text-align:center;padding:110px 0 50px}
+.tag{display:inline-flex;align-items:center;gap:10px;font:500 12px 'Sora';letter-spacing:.3em;text-transform:uppercase;color:var(--red2);
+border:1px solid rgba(235,0,40,.4);padding:8px 18px;border-radius:99px;background:rgba(235,0,40,.07)}
+.tag i{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.3}}
+h1{font:800 clamp(40px,7vw,84px)/1.02 'Sora';margin:26px 0 18px;letter-spacing:-.03em}
+h1 span{background:linear-gradient(90deg,var(--red),var(--red2) 60%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:620px;margin:0 auto;color:var(--mut);font-weight:300;line-height:1.75;font-size:17px}
+.stats{display:flex;justify-content:center;gap:clamp(20px,5vw,60px);margin-top:40px;flex-wrap:wrap}
+.stats b{display:block;font:700 34px 'Sora';color:#fff}
+.stats small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+
+/* filters */
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:30px 0 10px}
+.chip{font:500 12px 'Sora';letter-spacing:.08em;color:var(--mut);background:transparent;border:1px solid var(--line);padding:10px 18px;border-radius:99px;cursor:pointer;transition:.25s}
+.chip:hover{color:#fff;border-color:rgba(235,0,40,.6)}
+.chip.on{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 0 24px rgba(235,0,40,.45)}
+
+/* sections */
+.group{margin-top:64px}
+.ghead{display:flex;align-items:center;gap:18px;margin-bottom:28px}
+.ghead h2{font:700 13px 'Sora';letter-spacing:.32em;text-transform:uppercase;white-space:nowrap}
+.ghead h2 em{color:var(--red);font-style:normal;margin-right:10px}
+.ghead::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--red),transparent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:26px}
+.group.lead .grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+
+/* card */
+.card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid var(--line);border-radius:20px;padding:14px 14px 22px;
+text-align:center;transition:transform .35s,border-color .35s,box-shadow .35s;opacity:0;transform:translateY(30px)}
+.card.in{opacity:1;transform:none;transition:opacity .7s,transform .7s,border-color .35s,box-shadow .35s}
+.card:hover{transform:translateY(-8px);border-color:rgba(235,0,40,.6);box-shadow:0 20px 60px -20px rgba(235,0,40,.55)}
+.photo{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#121216}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.85) contrast(1.05);transition:.5s}
+.card:hover .photo img{filter:none;transform:scale(1.06)}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,5,6,.85)),repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px);pointer-events:none}
+.scan{position:absolute;left:0;right:0;height:2px;background:var(--red2);box-shadow:0 0 18px 4px rgba(235,0,40,.7);top:-5%;opacity:0;z-index:2}
+.card:hover .scan{animation:scan 1.6s linear infinite;opacity:1}
+@keyframes scan{to{top:105%}}
+.fallback{position:absolute;inset:0;display:grid;place-items:center;font:800 64px 'Sora';color:rgba(235,0,40,.85);
+background:radial-gradient(circle at 50% 40%,rgba(235,0,40,.25),transparent 65%),#101014}
+.corner{position:absolute;width:18px;height:18px;border:2px solid var(--red);z-index:3;opacity:.7}
+.c1{top:10px;left:10px;border-right:0;border-bottom:0}.c2{top:10px;right:10px;border-left:0;border-bottom:0}
+.c3{bottom:10px;left:10px;border-right:0;border-top:0}.c4{bottom:10px;right:10px;border-left:0;border-top:0}
+.idx{position:absolute;top:14px;left:50%;transform:translateX(-50%);font:500 10px 'Sora';letter-spacing:.25em;color:#fff;opacity:.6;z-index:3}
+.card h3{font:700 19px 'Sora';margin-top:20px;letter-spacing:-.01em}
+.role{display:inline-block;margin-top:10px;font:500 11px 'Sora';letter-spacing:.18em;text-transform:uppercase;color:var(--red2);
+padding:6px 14px;border-radius:99px;background:rgba(235,0,40,.1);border:1px solid rgba(235,0,40,.3)}
+.lead .card{padding-bottom:26px}
+.lead .card h3{font-size:22px}
+.lead .card::before{content:"";position:absolute;inset:-1px;border-radius:20px;padding:1px;background:linear-gradient(160deg,var(--red),transparent 45%);
+-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+
+footer{text-align:center;padding:90px 0 60px;color:var(--mut);font-size:13px;letter-spacing:.15em;text-transform:uppercase}
+footer b{color:var(--red)}
+.hide{display:none!important}
+@media(max-width:560px){.hero{padding-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:14px}.card h3{font-size:15px}.role{font-size:9px;padding:5px 9px}.fallback{font-size:44px}.group.lead .grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <span class="tag"><i></i> TEDxMPS Youth &middot; Breaking Barriers</span>
+    <h1>The Minds Behind <span>The Vision</span></h1>
+    <p>A team of passionate student leaders, creators and technologists working together to bring ideas worth spreading to life.</p>
+    <div class="stats">
+      <div><b>11</b><small>Members</small></div>
+      <div><b>6</b><small>Teams</small></div>
+      <div><b>1</b><small>Shared Vision</small></div>
+    </div>
+    <div class="filters" id="filters"></div>
+  </header>
+  <main id="teams">
+<section class="group lead" data-team="Event Directors">
+<div class="ghead"><h2><em>01</em>Event Directors</h2></div>
+<div class="grid">
+<article class="card">
+  <div class="photo"><span class="idx">ID-01</span><span class="scan"></span>
+    <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    <div class="fallback">P</div>
+    <!-- IMAGE SRC: change the file name below -->
+    <img src="{% static 'image/s4.jpeg' %}" alt="speaker" onerror="this.remove()">
+  </div>
+  <h3>Pratham Chouhan</h3><span class="role">Event Directors</span>
+</article>
+<article class="card">
+  <div class="photo"><span class="idx">ID-02</span><span class="scan"></span>
+    <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    <div class="fallback">N</div>
+    <!-- IMAGE SRC: change the file name below -->
+    <img src="{% static 'image/s1.jpeg' %}" alt="speaker" onerror="this.remove()">
+  </div>
+  <h3>Nitya Kanwar</h3><span class="role">Event Directors</span>
+</article>
+<article class="card">
+  <div class="photo"><span class="idx">ID-03</span><span class="scan"></span>
+    <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    <div class="fallback">P</div>
+    <!-- IMAGE SRC: change the file name below -->
+    <img src="{% static 'image/s6.jpeg' %}" alt="speaker" onerror="this.remove()">
+  </div>
+  <h3>Prashansha Jain</h3><span class="role">Event Directors</span>
+</article>
+</div>
+</section>
+<section class="group" data-team="Management Team">
+<div class="ghead"><h2><em>02</em>Management Team</h2></div>
+<div class="grid">
+<article class="card">
+  <div class="photo"><span class="idx">ID-04</span><span class="scan"></span>
+    <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    <div class="fallback">S</div>
+    <!-- IMAGE SRC: change the file name below -->
+    <img src="{% static 'image/s3.jpeg' %}" alt="speaker" onerror="this.remove()">
+  </div>
+  <h3>Stuti Jain</h3><span class="role">Management Team</span>
+</article>
+<article class="card">
+  <div class="photo"><span class="idx">ID-05</span><span class="scan"></span>
+    <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    <div class="fallback">A</div>
+    <!-- IMAGE SRC: change the file name below -->
+    <img src="{% static 'image/s8.jpeg' %}" alt="speaker" onerror="this.remove()">
+  </div>
+  <h3>Arjav Jain</h3><span class="role">Management Team</span>
+</article>
+</div>
+</section>
+<section class="group" data-team="IT Team">
+<div class="ghead"><h2><em>03</em>IT Team</h2></div>
+<div class="grid">
+<article class="card">
+  <div class="photo"><span class="idx">ID-06</span><span class="scan"></span>
+    <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    <div class="fallback">V</div>
+    <!-- IMAGE SRC: change the file name below -->
+    <img src="{% static 'image/s9.jpeg' %}" alt="speaker" onerror="this.remove()">
+  </div>
+  <h3>Vinayak Gangwar</h3><span class="role">IT Team</span>
+</article>
+</div>
+</section>
+<section class="group" data-team="Content Team">
+<div class="ghead"><h2><em>04</em>Content Team</h2></div>
+<div class="grid">
+<article class="card">
+  <div class="photo"><span class="idx">ID-07</span><span class="scan"></span>
+    <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    <div class="fallback">S</div>
+    <!-- IMAGE SRC: change the file name below -->
+    <img src="{% static 'image/s5.jpeg' %}" alt="speaker" onerror="this.remove()">
+  </div>
+  <h3>Sanvi Singh</h3><span class="role">Content Team</span>
+</article>
+<article class="card">
+  <div class="photo"><span class="idx">ID-08</span><span class="scan"></span>
+    <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    <div class="fallback">S</div>
+    <!-- IMAGE SRC: change the file name below -->
+   <img src="{% static 'image/s7.jpeg' %}" alt="speaker" onerror="this.remove()">
+  </div>
+  <h3>Samira Anjum</h3><span class="role">Content Team</span>
+</article>
+</div>
+</section>
+<section class="group" data-team="Design Team">
+<div class="ghead"><h2><em>05</em>Design Team</h2></div>
+<div class="grid">
+<article class="card">
+  <div class="photo"><span class="idx">ID-09</span><span class="scan"></span>
+    <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    <div class="fallback">B</div>
+    <!-- IMAGE SRC: change the file name below -->
+    <img src="{% static 'image/s11.jpeg' %}" alt="speaker" onerror="this.remove()">
+  </div>
+  <h3>Bhavya Kumawat</h3><span class="role">Design Team</span>
+</article>
+</div>
+</section>
+<section class="group" data-team="Technical Team">
+<div class="ghead"><h2><em>06</em>Technical Team</h2></div>
+<div class="grid">
+<article class="card">
+  <div class="photo"><span class="idx">ID-10</span><span class="scan"></span>
+    <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    <div class="fallback">S</div>
+    <!-- IMAGE SRC: change the file name below -->
+    <img src="{% static 'image/s2.jpeg' %}" alt="speaker" onerror="this.remove()">
+  </div>
+  <h3>Shubham Sharma</h3><span class="role">Technical Team</span>
+</article>
+<article class="card">
+  <div class="photo"><span class="idx">ID-11</span><span class="scan"></span>
+    <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    <div class="fallback">D</div>
+    <!-- IMAGE SRC: change the file name below -->
+    <img src="{% static 'image/s10.jpeg' %}" alt="speaker" onerror="this.remove()">
+  </div>
+  <h3>Divyaman Kumar</h3><span class="role">Technical Team</span>
+</article>
+</div>
+</section>
+</main>
+  <footer>TEDxMPS Youth <b>/</b> Ideas Worth Spreading</footer>
+</div>
+
+<script>
+/* hide fallback letter once the photo loads; remove broken images */
+document.querySelectorAll(".card").forEach(c=>{
+  const im=c.querySelector("img"),fb=c.querySelector(".fallback");
+  im.onerror=()=>im.remove();
+  const ok=()=>fb&&fb.remove();
+  if(im.complete&&im.naturalWidth)ok();else im.onload=ok;
+});
+/* filters */
+const fl=document.getElementById("filters");
+["All",...[...document.querySelectorAll(".group")].map(g=>g.dataset.team)].forEach((l,i)=>{
+  const b=document.createElement("button");b.className="chip"+(i?"":" on");b.textContent=l;
+  b.onclick=()=>{fl.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));b.classList.add("on");
+    document.querySelectorAll(".group").forEach(g=>g.classList.toggle("hide",i&&g.dataset.team!==l));
+    document.querySelectorAll(".card").forEach(c=>c.classList.add("in"))};
+  fl.appendChild(b);
+});
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll(".card").forEach((c,i)=>{c.style.transitionDelay=(i%4)*90+"ms";io.observe(c)});
+</script>
+</body>
+</html>

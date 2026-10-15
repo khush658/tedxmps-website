@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rules & Guidelines | TEDx MPS Youth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;500;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--red:#eb0028;--red2:#ff4d6a;--bg:#050506;--panel:rgba(16,16,20,.72);--line:rgba(235,0,40,.28);--txt:#eceaea;--mut:#9a9599}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:Inter,sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+#blocks{position:fixed;inset:0;z-index:0;width:100%;height:100%}
+.vig{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 50% 20%,transparent 0,rgba(5,5,6,.55) 60%,var(--bg) 100%)}
+main{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:0 22px 80px}
+h1,h2,h3{font-family:Sora,sans-serif}
+nav{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;padding:12px 0;backdrop-filter:blur(10px);background:linear-gradient(var(--bg),transparent)}
+nav a{flex:none;font:500 11px Sora;letter-spacing:.14em;color:var(--mut);text-decoration:none;padding:8px 12px;border:1px solid transparent;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);transition:.25s}
+nav a:hover{color:#fff;background:var(--red)}
+.hero{min-height:78vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 40px}
+.tag{font:500 12px Sora;letter-spacing:.35em;color:var(--red2);display:flex;align-items:center;gap:12px}
+.tag:before{content:"";width:42px;height:2px;background:var(--red)}
+h1{font-size:clamp(44px,9vw,104px);line-height:.98;font-weight:800;margin:18px 0 22px;letter-spacing:-.03em}
+h1 b{color:var(--red);font-weight:800}
+h1 span{display:block;font-weight:300;font-size:.42em;letter-spacing:.02em;color:var(--mut);margin-top:12px}
+.hero p{max-width:560px;color:var(--mut);font-size:17px}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.stats div{border:1px solid var(--line);background:var(--panel);padding:12px 18px;font:500 12px Sora;letter-spacing:.12em;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}
+.stats div em{display:block;font-style:normal;font-size:22px;color:var(--red2)}
+section{margin-top:78px;scroll-margin-top:60px}
+.head{display:flex;align-items:flex-end;gap:18px;margin-bottom:26px}
+.num{font:800 64px/0.8 Sora;color:transparent;-webkit-text-stroke:1px var(--red)}
+.head h2{font-size:clamp(24px,4vw,38px);font-weight:700}
+.head:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.card{position:relative;background:var(--panel);border:1px solid var(--line);padding:30px;backdrop-filter:blur(8px);clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px))}
+.card:before{content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:var(--red);box-shadow:0 0 18px var(--red)}
+.card p+p{margin-top:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.tile{position:relative;background:var(--panel);border:1px solid var(--line);padding:24px 24px 26px;backdrop-filter:blur(8px);transition:.3s;overflow:hidden}
+.tile:after{content:"";position:absolute;right:-30px;top:-30px;width:70px;height:70px;background:var(--red);opacity:.12;transform:rotate(45deg);transition:.3s}
+.tile:hover{transform:translateY(-6px);border-color:var(--red);box-shadow:0 14px 40px -14px rgba(235,0,40,.6)}
+.tile:hover:after{opacity:.5}
+.tile i{font:700 11px Sora;font-style:normal;letter-spacing:.2em;color:var(--red2)}
+.tile h3{font-size:18px;margin:8px 0 8px;font-weight:700}
+.tile p{color:var(--mut);font-size:14.5px}
+.note{margin-top:18px;padding:16px 20px;border:1px dashed var(--line);color:var(--mut);font-size:14.5px}
+.note b{color:var(--red2);font-weight:500}
+.res{display:grid;gap:12px}
+.res a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;background:var(--panel);border:1px solid var(--line);color:var(--txt);text-decoration:none;font:500 15px Sora;transition:.3s;position:relative;overflow:hidden}
+.res a small{display:block;font:300 12px Inter;color:var(--mut);margin-top:2px;word-break:break-all}
+.res a:before{content:"";position:absolute;inset:0;background:var(--red);transform:translateX(-101%);transition:.4s;z-index:-1}
+.res a{z-index:0;isolation:isolate}
+.res a:hover:before{transform:none}
+.res a:hover small{color:#fff}
+.res a span{font-size:22px}
+footer{position:relative;z-index:2;text-align:center;padding:34px 22px 50px;border-top:1px solid var(--line);color:var(--mut);font-size:13px;max-width:760px;margin:0 auto}
+footer b{color:var(--red2);font-family:Sora;letter-spacing:.2em;font-weight:700}
+.rv{opacity:0;transform:translateY(26px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:600px){.card{padding:24px 20px}.num{font-size:48px}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<canvas id="blocks"></canvas><div class="vig"></div>
+
+<main>
+<nav>
+ <a href="#s1">PURPOSE</a><a href="#s2">SPEAKERS</a><a href="#s3">CONTENT</a><a href="#s4">CONDUCT</a><a href="#s5">BRANDING</a><a href="#s6">INDEPENDENCE</a><a href="#s7">COMPLIANCE</a><a href="#res">RESOURCES</a>
+</nav>
+
+<header class="hero">
+ <div class="tag">TEDx MPS YOUTH · OFFICIAL HANDBOOK</div>
+ <h1>Rules <b>&</b><br>Guidelines<span>Ideas worth spreading, shared with integrity.</span></h1>
+ <p>The principles every speaker, performer, volunteer and partner agrees to uphold at TEDx MPS.</p>
+ <div class="stats">
+  <div><em>07</em>CORE SECTIONS</div><div><em>06</em>SPEAKER RULES</div><div><em>01</em>SHARED VISION</div>
+ </div>
+</header>
+
+<section id="s1" class="rv">
+ <div class="head"><div class="num">01</div><h2>Our Purpose</h2></div>
+ <div class="card"><p>TEDx MPS is committed to creating a platform where ideas are shared, perspectives are challenged, and meaningful conversations begin. Guided by the TEDx philosophy of ideas worth spreading, we aim to encourage curiosity, creativity, critical thinking, and intellectual exploration.</p></div>
+</section>
+
+<section id="s2" class="rv">
+ <div class="head"><div class="num">02</div><h2>Speaker Guidelines</h2></div>
+ <div class="grid">
+  <div class="tile"><i>RULE 2.1</i><h3>Ideas over promotion</h3><p>Talks must focus on a meaningful idea rather than promoting a business, product, service, or personal brand.</p></div>
+  <div class="tile"><i>RULE 2.2</i><h3>Originality and authenticity</h3><p>Speakers should present well-developed ideas supported by credible information, relevant research, and genuine insights.</p></div>
+  <div class="tile"><i>RULE 2.3</i><h3>Respectful expression</h3><p>Talks must avoid hate speech, discriminatory rhetoric, inflammatory advocacy, and attacks on individuals or groups.</p></div>
+  <div class="tile"><i>RULE 2.4</i><h3>Evidence-based claims</h3><p>Scientific, medical, statistical, and other factual claims should be accurate, appropriately supported, and presented responsibly.</p></div>
+  <div class="tile"><i>RULE 2.5</i><h3>Time and preparation</h3><p>Speakers must follow the event's assigned time limits and participate in the required rehearsals.</p></div>
+  <div class="tile"><i>RULE 2.6</i><h3>Presentation materials</h3><p>Images, videos, music, quotations, and other materials must comply with applicable copyright requirements.</p></div>
+ </div>
+</section>
+
+<section id="s3" class="rv">
+ <div class="head"><div class="num">03</div><h2>Content Standards</h2></div>
+ <div class="card">
+  <p>All talks and performances must uphold the principles of intellectual integrity, accuracy, respect, and responsible communication.</p>
+  <p>Content must not be used to promote commercial interests, partisan political agendas, unsupported scientific claims, or harmful misinformation. Personal experiences and opinions should be distinguished from established facts.</p>
+ </div>
+</section>
+
+<section id="s4" class="rv">
+ <div class="head"><div class="num">04</div><h2>Event Conduct</h2></div>
+ <div class="grid">
+  <div class="tile"><i>01</i><h3>Professionalism</h3><p>All participants must maintain professionalism and respect toward speakers, guests, volunteers, and fellow team members.</p></div>
+  <div class="tile"><i>02</i><h3>Follow the schedule</h3><p>Participants are expected to follow the event schedule and the instructions of the organising team.</p></div>
+  <div class="tile"><i>03</i><h3>Stage and access</h3><p>Rehearsals, stage protocols, photography, recording, and backstage access must follow the permissions and procedures established by the organisers.</p></div>
+  <div class="tile"><i>04</i><h3>Inclusive environment</h3><p>Every participant is responsible for contributing to a welcoming, disciplined, and inclusive environment.</p></div>
+ </div>
+</section>
+
+<section id="s5" class="rv">
+ <div class="head"><div class="num">05</div><h2>Branding & Intellectual Property</h2></div>
+ <div class="card">
+  <p>The TEDx name, logo, and visual identity must be used in accordance with the official TEDx branding and licensing requirements. The TEDx MPS team must ensure that its website, promotional material, and other communications follow the applicable rules.</p>
+  <p>All third-party content must be appropriately licensed or used with permission where required. The TEDx identity must not be used to imply endorsement of products, services, or organisations.</p>
+ </div>
+</section>
+
+<section id="s6" class="rv">
+ <div class="head"><div class="num">06</div><h2>Independence & Integrity</h2></div>
+ <div class="card"><p>TEDx events are independently organised under a licence granted by TED. Speakers, sponsors, and external organisations must not influence the editorial integrity of the programme. The selection and presentation of ideas must remain consistent with TEDx principles.</p></div>
+</section>
+
+<section id="s7" class="rv">
+ <div class="head"><div class="num">07</div><h2>Compliance</h2></div>
+ <div class="card">
+  <p>Participation in TEDx MPS requires adherence to the event's established procedures and applicable TEDx requirements. The organising team reserves the right to review content and address concerns in accordance with these requirements.</p>
+  <p>For the complete and authoritative set of rules, participants should consult the official TEDx guidelines.</p>
+ </div>
+</section>
+
+<section id="res" class="rv">
+ <div class="head"><div class="num">↗</div><h2>Official Resources</h2></div>
+ <div class="res">
+  <a href="https://www.ted.com/tedx/before-you-apply/tedx-rules" target="_blank" rel="noopener"><div>TEDx Rules<small>ted.com/tedx/before-you-apply/tedx-rules</small></div><span>→</span></a>
+  <a href="https://www.ted.com/tedx/organizer-guide/tedx-content-guidelines" target="_blank" rel="noopener"><div>TEDx Content Guidelines<small>ted.com/tedx/organizer-guide/tedx-content-guidelines</small></div><span>→</span></a>
+  <a href="https://www.ted.com/tedx/speaking-at-tedx" target="_blank" rel="noopener"><div>Speaking at TEDx<small>ted.com/tedx/speaking-at-tedx</small></div><span>→</span></a>
+ </div>
+</section>
+</main>
+
+<footer>
+ <b>TEDx MPS</b><br>
+ This page is an informational summary for TEDx MPS. Official TEDx rules and licensing requirements take precedence over this summary.
+</footer>
+
+<script>
+// Block-grid background: square cells that randomly pulse in red, with a pointer-follow glow
+(function(){
+ var c=document.getElementById('blocks'),x=c.getContext('2d'),S=46,G=3,W,H,cols,rows,cells=[],mx=-999,my=-999;
+ var still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ function init(){
+  W=c.width=innerWidth;H=c.height=innerHeight;cols=Math.ceil(W/S);rows=Math.ceil(H/S);cells=[];
+  for(var i=0;i<cols*rows;i++)cells.push({a:0,t:0});
+ }
+ function draw(){
+  x.clearRect(0,0,W,H);
+  for(var r=0;r<rows;r++)for(var k=0;k<cols;k++){
+   var cell=cells[r*cols+k],px=k*S,py=r*S;
+   if(cell.a>0)cell.a-=.012;
+   if(Math.random()<.0009)cell.a=.35+Math.random()*.65;
+   var d=Math.hypot(px+S/2-mx,py+S/2-my);
+   var g=d<190?(1-d/190):0;
+   var fade=1-py/H*.55;
+   x.fillStyle='rgba(255,255,255,'+(.022*fade)+')';
+   x.fillRect(px+G,py+G,S-G*2,S-G*2);
+   var al=Math.max(cell.a*.5,g*.6)*fade;
+   if(al>.01){x.fillStyle='rgba(235,0,40,'+al+')';x.fillRect(px+G,py+G,S-G*2,S-G*2);
+    if(al>.3){x.strokeStyle='rgba(255,77,106,'+al+')';x.strokeRect(px+G+.5,py+G+.5,S-G*2-1,S-G*2-1);}}
+  }
+  if(!still)requestAnimationFrame(draw);
+ }
+ addEventListener('resize',function(){init();if(still)draw()});
+ addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY});
+ init();draw();
+})();
+// Scroll reveal
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
